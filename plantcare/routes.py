@@ -8,7 +8,8 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    categories = list(PlantCategory.query.order_by(PlantCategory.plant_category_name).all())
+    return render_template("categories.html", categories=categories)
 
 # @app.route("/add_category", methods=["GET","POST"])
 # def add_category():
