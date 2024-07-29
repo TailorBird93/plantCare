@@ -4,4 +4,4 @@ from plantcare.models import PlantCategory, Plant
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("plants.html")

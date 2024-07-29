@@ -1,10 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let sidenav = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
-
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+document.addEventListener("DOMContentLoaded", function() {
+    // inint the sidebar navigation
+    let sidenav = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(sidenav);
+});
