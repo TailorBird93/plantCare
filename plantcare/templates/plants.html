@@ -2,4 +2,30 @@
 {% block content %}
 
 <h3 class="center-align">My Plants</h3>
-{% endblock%}
+
+<div class="row">
+    <div class="col s12 center-align">
+        <a href="{{ url_for('add_plant')}}" class="btn-large teal darken-2">
+            Add Plant <i class="fas fa-plus-square right"></i>
+        </a>
+    </div>
+</div>
+
+<ul class="collapsible">
+    {% for plant in plants %}
+    <li>
+        <div class="collapsible-header teal darken-2 white-text">
+            <i class="fas fa-leaf"></i>
+            <strong>{{ plant.name }}</strong>
+        </div>
+        <div class="collapsible-body">
+            <p><strong>Watering:</strong> {{ plant.watering }}</p>
+            <p><strong>Environment:</strong> {{ plant.environment }}</p>
+            <p><strong>Care Level:</strong> {{ plant.care_level }}</p>
+            <p><strong>Category:</strong> {{ plant.category.category_name }}</p>
+            <p><strong>Plant ID:</strong> #{{ plant.id }}</p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
