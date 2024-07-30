@@ -13,3 +13,10 @@ body {
     flex-direction: row;
     justify-content: space-around;
 }
+.collapsible-header.teal.darken-2.white-text * {
+  
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  
+}

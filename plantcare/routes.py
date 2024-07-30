@@ -66,3 +66,18 @@ def add_plant():
         return redirect(url_for("home"))
     
     return render_template("add_plant.html", categories=categories)
+
+
+@app.route("/edit_plant/<int:plant_id>", methods=["GET", "POST"])
+def edit_plant(plant_id):
+    plant = Plant.query.get_or_404(plant_id)
+    categories = list(Category.query.order_by(Category.category_name).all())
+    if request.method == "POST":
+        plant.name = request.form.get("plant_name")
+        plant.watering = request.form.get("watering")
+        plant.environment = request.form.get("environment")
+        plant.care_level = request.form.get("care_level")
+        plant.category_id = request.form.get("category_id")
+        db.session.commit()
+        return redirect(url_for('home'))  # or wherever you want to redirect after editing
+    return render_template("edit_plant.html", plant=plant, categories=categories)

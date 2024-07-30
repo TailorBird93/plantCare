@@ -16,14 +16,16 @@
     <li>
         <div class="collapsible-header teal darken-2 white-text">
             <i class="fas fa-leaf"></i>
-            <strong>{{ plant.name }}</strong>
+            <h4>{{ plant.name }}</h4>
+            <strong>{{plant.category.category_name}}</p></strong>
         </div>
         <div class="collapsible-body">
             <p><strong>Watering:</strong> {{ plant.watering }}</p>
             <p><strong>Environment:</strong> {{ plant.environment }}</p>
             <p><strong>Care Level:</strong> {{ plant.care_level }}</p>
-            <p><strong>Category:</strong> {{ plant.category.category_name }}</p>
-            <p><strong>Plant ID:</strong> #{{ plant.id }}</p>
+            <p>
+                <a href="{{url_for('edit_plant', plant_id=plant.id)}}" class="btn green accent-4">Edit</a>
+            </p>
         </div>
     </li>
     {% endfor %}
