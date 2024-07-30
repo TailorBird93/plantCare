@@ -79,5 +79,12 @@ def edit_plant(plant_id):
         plant.care_level = request.form.get("care_level")
         plant.category_id = request.form.get("category_id")
         db.session.commit()
-        return redirect(url_for('home'))  # or wherever you want to redirect after editing
+        return redirect(url_for('home'))
     return render_template("edit_plant.html", plant=plant, categories=categories)
+
+@app.route("/delete_plant/<int:plant_id>")
+def delete_plant(plant_id):
+    plant = Plant.query.get_or_404(plant_id)
+    db.session.delete(plant)
+    db.session.commit()
+    return redirect(url_for("home"))
